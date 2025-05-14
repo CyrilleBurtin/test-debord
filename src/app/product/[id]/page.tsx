@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-// Define the Product interface (or import from a shared types file)
 interface Product {
   id: number;
   title: string;
@@ -23,7 +22,7 @@ const ProductPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   const response = await fetch(`https://fakestoreapi.com/products/${productId}`, {
-    cache: 'force-cache', // Cache for static generation
+    cache: 'force-cache',
   });
 
   if (!response.ok) {
