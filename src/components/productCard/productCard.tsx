@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link';
+import {Product} from "@/app/page";
 
-export type Product = {
-  id: number
-  title: string
-  image: string
-  price: number
-}
 
 const productCard = ({
                        id,
@@ -15,16 +10,13 @@ const productCard = ({
                        price
                      }: Product) => {
   return (
-    <li key={id} className="bg-black border border-amber-50 rounded-2xl flex flex-col items-center">
-      <div>
+    <li key={id} className="bg-black border border-amber-50 rounded-2xl flex flex-col items-center justify-between p-4">
         <h2>
           {title}
         </h2>
         <Image src={image} width={100} height={100} alt={title}/>
         <p>{price?.toFixed(2)} €</p>
-      </div>
-
-      <Link href={`/product/${id}`}><button>voir</button></Link>
+      <Link href={`/product/${id}`}><button className={"bg-blue-500 w-20 rounded-2xl cursor-pointer"}>voir</button></Link>
     </li>
   )
 }
